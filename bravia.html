@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Plant a tree</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
+    <script>
+      function setup() {
+      createCanvas(windowWidth - 20, windowHeight - 20)
+      dots = []
+      for (i = 0; i < 100; i++) {
+        dots.push(new bouncyBall())
+      }
+      colorMode(HSL, 360, 100, 100)
+    }
+
+    function draw() {
+      background(220, 0, 80)
+      dots.forEach( dot => {
+        //dot.puff()
+        dot.move()
+        dot.display()
+      })
+    }
+
+    class bouncyBall {
+      constructor() {
+        this.x = random(width)
+        this.y = random(height)
+        this.r = random(5,12)
+        this.maxR = 20
+        this.minR = 5
+        this.growthDirection = 1
+        this.growthRate = 0.1
+        this.color = random(360)
+        this.masterXvelocity = random(0.5, 3)
+        this.masterYvelocity = random(0.5, 3)
+        this.xVelocity = this.masterXvelocity
+        this.yVelocity = this.masterYvelocity
+        if (random(-1, 1) > 0) {
+          this.xVelocity = this.xVelocity * -1
+        }
+        if (random(-1, 1) > 0) {
+          this.yVelocity = this.yVelocity * -1
+        }
+      }
+
+      puff() {
+        if (random(0, 1) < 0.05) {
+          this.growthDirection = this.growthDirection * -1
+        }
+        if (this.r > this.maxR) {
+          this.growthDirection = -1 * abs(this.growthDirection)
+        } else if (this.r < this.minR) {
+          this.growthDirection = abs(this.growthDirection)
+        }
+        this.r += this.growthDirection * this.growthRate
+      }
+
+      move() {
+        this.x += this.xVelocity
+        this.y += this.yVelocity
+        if (this.x + this.r > width) {
+          this.xVelocity = -1 * this.masterXvelocity
+        }
+        if (this.x - this.r < 0) {
+          this.xVelocity = this.masterXvelocity
+        }
+        if (this.y + this.r > height) {
+          this.yVelocity = -1 * this.masterYvelocity
+        }
+        if (this.y - this.r < 0) {
+          this.yVelocity = this.masterYvelocity
+        }
+      }
+
+      display() {
+        this.color = (this.color + random(0, 1.2)) % 360
+        fill(this.color, 80, 70)
+        noStroke()
+        ellipse(this.x, this.y, this.r * 2)
+      }
+    }
+    </script>
+    <style> body {padding: 0; margin: 0;} </style>
+  </head>
+  <body>
+  </body>
+</html>
