@@ -15,6 +15,7 @@
         dots.push(new bouncyBall())
       }
       colorMode(HSL, 360, 100, 100)
+      myColor = random(360)
     }
 
     function draw() {
@@ -25,6 +26,7 @@
         dot.display()
         dot.checkCollision()
       })
+      fill(myColor,80,70)
       ellipse(mouseX, mouseY, 30)
       if (collideCircleCircle(mouseX, mouseY, 30, specialDot.x, specialDot.y, specialDot.r * 2)) {
         console.log("collision!!!!!!")
@@ -92,7 +94,7 @@
       
       checkCollision() {
         if (collideCircleCircle(this.x, this.y, this.r*2, mouseX, mouseY, 30)) {
-          this.r = 0
+          dots.splice(dots.indexOf(this), 1)
         }
       }
     }
