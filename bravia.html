@@ -4,13 +4,16 @@
   <head>
     <title>Plant a tree</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
+    <script src="collide.js"></script>
     <script>
       function setup() {
       createCanvas(windowWidth - 20, windowHeight - 20)
       dots = []
-      for (i = 0; i < 100; i++) {
-        dots.push(new bouncyBall())
-      }
+      specialDot = new bouncyBall()
+      dots.push(specialDot)
+      // for (i = 0; i < 1; i++) {
+      //   dots.push(new bouncyBall())
+      // }
       colorMode(HSL, 360, 100, 100)
     }
 
@@ -21,6 +24,11 @@
         dot.move()
         dot.display()
       })
+      ellipse(mouseX, mouseY, 30)
+      if (collideCircleCircle(mouseX, mouseY, 30, specialDot.x, specialDot.y, specialDot.r * 2)) {
+        console.log("collision!!!!!!")
+      }
+      //console.log(specialDot.x, specialDot.y, specialDot.r)
     }
 
     class bouncyBall {
@@ -79,6 +87,10 @@
         fill(this.color, 80, 70)
         noStroke()
         ellipse(this.x, this.y, this.r * 2)
+      }
+      
+      checkCollision() {
+        if (collideCircleCircle())
       }
     }
     </script>
