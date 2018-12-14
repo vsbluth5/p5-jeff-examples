@@ -16,6 +16,7 @@
       }
       colorMode(HSL, 360, 100, 100)
       myColor = random(360)
+      spread = 30
     }
 
     function draw() {
@@ -27,7 +28,7 @@
         dot.checkCollision()
       })
       fill(myColor,80,70)
-      ellipse(mouseX, mouseY, 30)
+      ellipse(mouseX, mouseY, spread)
       if (collideCircleCircle(mouseX, mouseY, 30, specialDot.x, specialDot.y, specialDot.r * 2)) {
         console.log("collision!!!!!!")
       }
@@ -93,8 +94,13 @@
       }
       
       checkCollision() {
-        if (collideCircleCircle(this.x, this.y, this.r*2, mouseX, mouseY, 30)) {
+        if (collideCircleCircle(this.x, this.y, this.r*2, mouseX, mouseY, spread)) {
+          spread += sqrt(this.r)
+          myColor = myColor > this.color ? myColor + 8 : myColor - 8
+          myColor = myColor < 0 
+          myColor = myColor % 360
           dots.splice(dots.indexOf(this), 1)
+          console.log(myColor)
         }
       }
     }
