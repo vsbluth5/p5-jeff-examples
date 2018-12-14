@@ -97,8 +97,7 @@
         if (collideCircleCircle(this.x, this.y, this.r*2, mouseX, mouseY, spread)) {
           spread += sqrt(this.r)
           myColor = myColor > this.color ? myColor + 8 : myColor - 8
-          myColor = myColor < 0 
-          myColor = myColor % 360
+          // Need code to move in the direction that is shortest distance.
           dots.splice(dots.indexOf(this), 1)
           console.log(myColor)
         }
