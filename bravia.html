@@ -11,9 +11,9 @@
       dots = []
       specialDot = new bouncyBall()
       dots.push(specialDot)
-      // for (i = 0; i < 1; i++) {
-      //   dots.push(new bouncyBall())
-      // }
+      for (i = 0; i < 100; i++) {
+        dots.push(new bouncyBall())
+      }
       colorMode(HSL, 360, 100, 100)
     }
 
@@ -23,6 +23,7 @@
         //dot.puff()
         dot.move()
         dot.display()
+        dot.checkCollision()
       })
       ellipse(mouseX, mouseY, 30)
       if (collideCircleCircle(mouseX, mouseY, 30, specialDot.x, specialDot.y, specialDot.r * 2)) {
@@ -90,7 +91,9 @@
       }
       
       checkCollision() {
-        if (collideCircleCircle())
+        if (collideCircleCircle(this.x, this.y, this.r*2, mouseX, mouseY, 30)) {
+          this.r = 0
+        }
       }
     }
     </script>
