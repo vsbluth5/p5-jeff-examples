@@ -16,7 +16,7 @@
       }
       colorMode(HSL, 360, 100, 100)
       myColor = random(360)
-      spread = 30
+      myRadius = 15
     }
 
     function draw() {
@@ -28,7 +28,7 @@
         dot.checkCollision()
       })
       fill(myColor,80,70)
-      ellipse(mouseX, mouseY, spread)
+      ellipse(mouseX, mouseY, myRadius * 2)
       if (collideCircleCircle(mouseX, mouseY, 30, specialDot.x, specialDot.y, specialDot.r * 2)) {
         console.log("collision!!!!!!")
       }
@@ -94,10 +94,15 @@
       }
       
       checkCollision() {
-        if (collideCircleCircle(this.x, this.y, this.r*2, mouseX, mouseY, spread)) {
-          spread += sqrt(this.r)
-          myColor = myColor > this.color ? myColor + 8 : myColor - 8
-          // Need code to move in the direction that is shortest distance.
+        if (collideCircleCircle(this.x, this.y, this.r*2, mouseX, mouseY, myRadius * 2)) {
+          // Code to sum AREA, not radii
+          let myArea = (myRadius ** 2) * PI 
+          let smallArea = (this.r **2) * PI
+          let newArea = myArea + smallArea
+          let newRadius = sqrt(newArea / PI)
+          myRadius = newRadius
+          let averageColor = (myColor * myArea + this.color * smallArea) / (newArea)
+          myColor = averageColor
           dots.splice(dots.indexOf(this), 1)
           console.log(myColor)
         }
