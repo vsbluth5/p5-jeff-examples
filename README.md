@@ -1,37 +1,27 @@
-Welcome to Glitch
+Welcome to my examples page
 =================
 
-Click `Show` in the header to see your app live. Updates to your code will instantly deploy and update live.
+If I'm noodling with a random project, it's probably linked here. Lots of scratch work - this is less a portfolio and more the code equivalent of a sketchpad. 
 
-**Glitch** is the friendly community where you'll build the app of your dreams. Glitch lets you instantly create, remix, edit, and host an app, bot or site, and you can invite collaborators or helpers to simultaneously edit code with you.
-
-Find out more [about Glitch](https://glitch.com/about).
-
-
-Your Project
+My Projects
 ------------
 
-### ← README.md
+### ← bravia.html
 
-That's this file, where you can tell people what your cool website does and how you built it.
+Links an object-oriented bouncing ball script
 
 ### ← index.html
 
-Where you'll write the content of your website. 
+A nexus - it links all the other projects. Also includes some legacy scratch work from a design lesson at a hackathon.
 
-### ← style.css
+### ← spooky.html
 
-CSS files add styling rules to your content.
+Click to plant a tree!
 
-### ← script.js
+### ← bubbles.html
 
-If you're feeling fancy you can add interactivity to your site with JavaScript.
+Click and drag to add carbonation
 
-### ← assets
+### ← colorcanvas.html
 
-Drag in `assets`, like images or music, to add them to your project
-
-Made by [Fog Creek](https://fogcreek.com/)
--------------------
-
-\ ゜o゜)ノ
+Click and drag to write
