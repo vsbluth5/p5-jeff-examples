@@ -3,20 +3,40 @@
   <head>
     <meta charset="UTF-8">
     <title>title</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
   </head>
   <body>
     <p>
       Input the a route you'd like to check here. 
     </p>
     <p>
-      To check a segment, just type two capital letters like AB 
+      To check a segment, just type two capital letters (eg: AB) 
     </p>
     <p>
-      To check a full path, type all eight points (like AB 
+      To check a full path, type all eight points (eg: ABCDEFGH). This should work for any length of path.
     </p>
-    <input id="path" placeholder="Input your path here"> 
+    <input id="path" placeholder="Input your path here">
+    <button>
+      Check Path
+    </button>
     <p id="result">
       
     </p>
   </body>
+  <script>
+    const pathField = document.querySelector("#path")
+    const button = document.querySelector("button")
+    const resultDiv = document.querySelector("#result")
+    
+    function get_distance(pointa, pointb) {
+      let r2 = ((pointa.x - pointb.x)**2) + ((pointa.y - pointb.y)**2)
+      return sqrt(r2)
+    }
+    
+    console.log(get_distance({"x": 0, "y": 0}, {"x": 3, "y": 4}));
+    
+    button.addEventListener('click', e => {
+      alert("hi") 
+    })
+  </script>
 </html>
