@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <title>title</title>
-    <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
+<!--     <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script> -->
   </head>
   <body>
     <p>
@@ -24,19 +24,58 @@
     </p>
   </body>
   <script>
+    points = {
+      "A": {"x": 20, "y": 20},
+      "B": {"x": 6, "y": 10},
+      "C": {"x": 12, "y": 5},
+      "D": {"x": 1, "y": 10},
+      "E": {"x": 14, "y": 13},
+      "F": {"x": 17, "y": 4},
+      "G": {"x": 3, "y": 4},
+      "H": {"x": 7, "y": 17},
+      "J": {"x": 10, "y": 9},
+      "K": {"x": 3, "y": 19},
+    }
+    
     const pathField = document.querySelector("#path")
     const button = document.querySelector("button")
     const resultDiv = document.querySelector("#result")
     
-    function get_distance(pointa, pointb) {
+    function getDistance(pointa, pointb) {
       let r2 = ((pointa.x - pointb.x)**2) + ((pointa.y - pointb.y)**2)
-      return sqrt(r2)
+      return Math.sqrt(r2)
     }
     
-    console.log(get_distance({"x": 0, "y": 0}, {"x": 3, "y": 4}));
+    function checkPath(path) {
+      path = path.toUpperCase()
+      if (!(/^[A-HJK]+$/.test(path))) {
+        return "invalid input! Please be sure to use only valid points"
+      }
+      let total = 0
+      path = path.split("")
+      console.log(path)
+      for (let i=0; i<path.length-1; i++) {
+        let a = points[path[i]] 
+        let b = points[path[i + 1]]
+        console.log(a, b)
+        total += getDistance(a, b)
+      }
+      return Math.round(total * 100) / 100
+      // for i in range(len(path) - 1):
+      //   a = points[path[i]]
+      //   b = points[path[i + 1]]
+      //   total += get_distance(a, b)
+      // return total
+    }
+    
+    
+    
+    console.log(getDistance({"x": 0, "y": 0}, {"x": 3, "y": 4}));
     
     button.addEventListener('click', e => {
-      alert("hi") 
+      let path = pathField.value
+      let result = checkPath(path)
+      resultDiv.innerHTML = `${path}: ${result}`
     })
   </script>
 </html>
