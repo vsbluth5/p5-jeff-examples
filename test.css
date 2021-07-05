@@ -1,0 +1,27 @@
+body{
+  background-color: #f0df2b;
+  color: #ab0000;
+  /*font-family: Arial, Helvetica, sans-serif;*/
+  font-family: 'Times New Roman', Times, serif; 
+}
+
+p{
+  font-size: 18px;
+}
+
+h1{
+  text-shadow: 2px 2px white;
+  background-color: black;
+  padding:20px;
+  Padding-top:25px;
+  Padding-bottom:25px;
+  /*padding-left:180px;*/
+  text-align: center;
+  margin:auto;
+  width:400px;
+}
+
+#bear{
+  width:60%;
+  margin:auto;
+}
