@@ -21,7 +21,8 @@ h1{
   width:400px;
 }
 
-#bear{
+img{
+  display:block;
   width:60%;
   margin:auto;
 }
