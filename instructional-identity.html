@@ -24,21 +24,40 @@
         >
       </div>
     </nav>
+    <br/><br/><br/>
     <div class="container">
       <div class="row">
-        
-        <div class="card" class="">
-          <img src="..." class="card-img-top" alt="..." />
+        <div class="card example col">
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
+            <h5 class="card-title">1</h5>
             <p class="card-text">
               Some quick example text to build on the card title and make up the
               bulk of the card's content.
             </p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <p class="card-text">
+              test
+            </p>
+            <div class="collapse" id="details1">
+              <p class="card-text">
+                Some placeholder content for the collapse component. This panel
+                is hidden by default but revealed when the user activates the
+                relevant trigger.
+              </p>
+              <br>
+            </div>
+            <button
+              class="btn btn-primary"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#details1"
+              aria-expanded="false"
+              aria-controls="details1"
+            >
+              Details
+            </button>
+            
           </div>
         </div>
-        
       </div>
     </div>
   </body>
