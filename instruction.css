@@ -1,3 +1,7 @@
 .card.example {
   margin: 10px;
 }
+
+.row {
+  justify-content: center;
+}
